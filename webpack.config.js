@@ -16,10 +16,10 @@ module.exports = {
         filename: 'bundle.js'
     },
 
-    devServer: {
-      contentBase: "./src",
-      hot: false
-    },
+    // devServer: {
+    //   contentBase: "_different_path_",
+    //   hot: false
+    // },
 
     resolve: {
         modulesDirectories: ['node_modules', 'src'],
