@@ -1,7 +1,7 @@
-import { EventEmitter } from 'events'
-import _ from 'lodash'
-import dispatcher from 'events/dispatcher'
-import events from '../events/appEvents'
+import { EventEmitter } from 'events';
+import _ from 'lodash';
+import dispatcher from 'events/dispatcher';
+import events from '../events/appEvents';
 
 class AppStore extends EventEmitter
 {
@@ -12,7 +12,7 @@ class AppStore extends EventEmitter
 
   appReady()
   {
-    console.log('%c [AppStore] App is ready!', 'color: green');
+    console.log('%cApp is ready!', 'color: green');
   }
 
   actionHandler(action)

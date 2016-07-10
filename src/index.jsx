@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from 'components/app';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import Layout from './pages/Layout';
