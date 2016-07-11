@@ -1,5 +1,5 @@
 const appEvents = {
-  APP_READY: 'app.ready'
+  APP_READY: 'appReady'
 }
 
 export default appEvents;

@@ -9,12 +9,15 @@ class Navigation extends React.Component
   transitionIn({target})
   {
     let items = target.findAllInChildren();
+    let timeline = new TimelineMax();
 
-    return new TimelineMax().staggerFrom(items, 1, {
+    timeline.staggerFrom(items, 1, {
       y: '-=30',
       autoAlpha: 0,
       ease: Expo.easeOut
     }, 0.2);
+
+    return timeline;
   }
 
   componentDidMount()

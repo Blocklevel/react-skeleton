@@ -15,24 +15,10 @@ class About extends React.Component
     });
 	}
 
-  transitionOut({target})
-  {
-    return TweenMax.to(target, 1, {
-      x: '+=100',
-      autoAlpha: 0,
-      ease: Expo.easeOut
-    });
-  }
-
 	componentDidMount()
 	{
 		this.addAnimation(this.transitionIn);
 	}
-
-  componentWillMount()
-  {
-    this.addAnimation(this.transitionOut);
-  }
 
   render()
   {

@@ -10,20 +10,9 @@ class AppStore extends EventEmitter
     super();
   }
 
-  appReady()
-  {
-    console.log('%cApp is ready!', 'color: green');
-  }
-
   actionHandler(action)
   {
-    switch (action.type)
-    {
-      default:
-      {
-        this.appReady();
-      }
-    }
+    // add the action switch case
   }
 }
 
