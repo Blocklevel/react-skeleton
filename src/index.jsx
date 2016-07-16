@@ -10,7 +10,9 @@ import baseStyle from './assets/css/base.css';
 /**
  * Components
  */
+import Master from './pages/Master';
 import Layout from './pages/Layout';
+import CMSLayout from './pages/CMSLayout';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
@@ -25,10 +27,14 @@ const app = document.getElementById('app');
  */
 ReactDom.render(
   <Router history={hashHistory}>
-    <Route path="/" component={Layout}>
-        <IndexRoute component={Home}></IndexRoute>
-        <Route path="about" component={About}></Route>
-        <Route path="contact" component={Contact}></Route>
+    <Route component={Master}>
+    	<Route path="/" component={Layout}>
+	        <IndexRoute component={Home}></IndexRoute>
+	        <Route path="about" component={About}></Route>
+	    </Route>
+	    <Route path="/contact" component={CMSLayout}>
+	    	<IndexRoute component={Contact}></IndexRoute>
+	    </Route>
     </Route>
   </Router>,
 app);

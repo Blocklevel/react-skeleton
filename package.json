@@ -4,7 +4,7 @@
   "description": "Simple react starter kit with webpack",
   "main": "index.js",
   "scripts": {
-    "start": "node server"
+    "dev": "webpack-dev-server"
   },
   "keywords": [],
   "author": "Matteo Gabriele <m.gabriele.dev@gmail.com> (http://matteogabriele.it)",

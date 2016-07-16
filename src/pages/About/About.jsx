@@ -2,7 +2,6 @@ import React from 'react';
 import gsap from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 import style from './About.css';
-import HelloWorld from '../../components/HelloWorld/HelloWorld';
 
 class About extends React.Component
 {
@@ -24,7 +23,8 @@ class About extends React.Component
   {
     return (
       <div className={style.base}>
-        <HelloWorld text="About page!"/>
+        <h2>About page</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quo sint recusandae.</p>
       </div>
     )
   }

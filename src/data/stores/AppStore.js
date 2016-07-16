@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events';
 import _ from 'lodash';
-import dispatcher from 'events/dispatcher';
-import events from '../events/appEvents';
+import dispatcher from 'data/events/dispatcher';
+import events from 'data/events/appEvents';
 
 class AppStore extends EventEmitter
 {

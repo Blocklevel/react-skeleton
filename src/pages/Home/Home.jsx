@@ -2,8 +2,7 @@ import React from 'react';
 import gsap from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 import style from './Home.css';
-import * as AppActions from '../../actions/AppActions';
-import HelloWorld from '../../components/HelloWorld/HelloWorld';
+import * as AppActions from '../../data/actions/AppActions';
 
 class Home extends React.Component
 {
@@ -27,8 +26,8 @@ class Home extends React.Component
   {
     return (
       <div className={style.base}>
-        <HelloWorld text="Hello world!"/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+        <h2>Home page</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quo sint recusandae.</p>
       </div>
     )
   }
