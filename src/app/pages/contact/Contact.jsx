@@ -1,9 +1,10 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
 
+@GSAP()
 class Contact extends React.Component
 {
-  transitionIn({target})
+    transitionIn({target})
 	{
 		return TweenMax.from(target, 1, {
           x: '-=100',
@@ -28,4 +29,4 @@ class Contact extends React.Component
   }
 }
 
-export default GSAP()(Contact);
+export default Contact;
