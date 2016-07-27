@@ -1,0 +1,19 @@
+{
+  "name": "react-starter-kit",
+  "description": "Simple react starter kit with webpack",
+  "main": "src/index.jsx",
+  "authors": [
+    "Matteo Gabriele <m.gabriele.dev@gmail.com> (http://matteogabriele.it)"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/MatteoGabriele/react-starter-kit",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/assets/vendors",
+    "test",
+    "tests"
+  ]
+}

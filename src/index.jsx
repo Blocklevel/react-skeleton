@@ -1,21 +1,21 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
+import { createHashHistory } from 'history';
 
 /**
- * Global styles
+ * Layouts
  */
-import baseStyle from './assets/css/base.css';
+import Master from './layouts/Master/Master';
+import Layout from './layouts/Layout/Layout';
 
 /**
- * Components
+ * Pages
  */
-import Master from './pages/Master';
-import Layout from './pages/Layout';
-import CMSLayout from './pages/CMSLayout';
-import Home from './pages/Home/Home';
-import About from './pages/About/About';
-import Contact from './pages/Contact/Contact';
+import Home from 'pages/Home/Home';
+import About from 'pages/About/About';
+import Contact from 'pages/Contact/Contact';
+import NoMatch from 'pages/NoMatch/NoMatch';
 
 /**
  * The actual node in which the application will be rendered
@@ -23,18 +23,22 @@ import Contact from './pages/Contact/Contact';
 const app = document.getElementById('app');
 
 /**
+ * Create the history object removing the query strings
+ */
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
+
+/**
  * Routing and app render
  */
 ReactDom.render(
-  <Router history={hashHistory}>
-    <Route component={Master}>
-    	<Route path="/" component={Layout}>
-	        <IndexRoute component={Home}></IndexRoute>
-	        <Route path="about" component={About}></Route>
-	    </Route>
-	    <Route path="/contact" component={CMSLayout}>
-	    	<IndexRoute component={Contact}></IndexRoute>
-	    </Route>
-    </Route>
-  </Router>,
+	<Router history={appHistory}>
+		<Route component={Master}>
+			<Route path="/" component={Layout}>
+				<IndexRoute component={Home} />
+				<Route path="about" component={About} />
+				<Route path="contact" component={Contact}/>
+				<Route path="*" component={NoMatch} />
+			</Route>
+		</Route>
+	</Router>,
 app);

@@ -1,5 +1,4 @@
 import { EventEmitter } from 'events';
-import _ from 'lodash';
 import dispatcher from 'data/events/dispatcher';
 import events from 'data/events/appEvents';
 
@@ -12,7 +11,13 @@ class AppStore extends EventEmitter
 
   actionHandler(action)
   {
-    // add the action switch case
+    switch (action.type)
+    {
+      case events.APP_READY:
+      {
+        // do stuff!
+      }
+    }
   }
 }
 

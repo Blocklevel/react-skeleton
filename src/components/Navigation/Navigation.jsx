@@ -7,6 +7,22 @@ import style  from './Navigation.css'
 class Navigation extends React.Component
 {
 
+ 
+
+  transitionIn({target})
+  {
+    return new TimelineMax().staggerFrom(target.findAll(), 1, {
+      y: '-=100',
+      autoAlpha: 0,
+      ease: Expo.easeOut
+    }, 0.2);
+  }
+
+  componentDidMount()
+  {
+    this.addAnimation(this.transitionIn);
+  }
+
   render()
   {
     return (
