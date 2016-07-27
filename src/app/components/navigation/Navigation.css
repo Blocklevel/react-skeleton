@@ -11,5 +11,5 @@
 }
 
 .linkActive {
-  color: #00aae7;
+  text-decoration: underline;
 }

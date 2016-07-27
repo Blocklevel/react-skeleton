@@ -1,28 +1,9 @@
-import gsap  from 'gsap'
 import React  from 'react'
-import GSAP  from 'react-gsap-enhancer'
 import { Link, IndexLink } from 'react-router'
 import style  from './Navigation.css'
 
 class Navigation extends React.Component
 {
-
- 
-
-  transitionIn({target})
-  {
-    return new TimelineMax().staggerFrom(target.findAll(), 1, {
-      y: '-=100',
-      autoAlpha: 0,
-      ease: Expo.easeOut
-    }, 0.2);
-  }
-
-  componentDidMount()
-  {
-    this.addAnimation(this.transitionIn);
-  }
-
   render()
   {
     return (
@@ -35,4 +16,4 @@ class Navigation extends React.Component
   }
 }
 
-export default GSAP()(Navigation);
+export default Navigation;

@@ -1,16 +1,13 @@
 import React  from 'react'
-import Navigation from 'components/Navigation/Navigation';
 
-/**
- * Global styles
- */
-require('assets/css/base.css');
+import style from './Master.css';
+import Navigation from 'app/components/navigation/Navigation';
 
 class Master extends React.Component 
 {   
     render() {
         return (
-	        <div>
+	        <div className={style.base}>
 	        	<Navigation />
 	        	{this.props.children}
 	        </div>

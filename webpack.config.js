@@ -8,18 +8,13 @@ module.exports = {
     entry: [
         'webpack-dev-server/client?http://127.0.0.1:8080/',
         'webpack/hot/only-dev-server',
-        './src'
+        './src/app/index.jsx'
     ],
 
     output: {
         path: path.join(__dirname, 'public'),
         filename: 'bundle.js'
     },
-
-    // devServer: {
-    //   contentBase: "_different_path_",
-    //   hot: false
-    // },
 
     resolve: {
         modulesDirectories: ['node_modules', 'src'],

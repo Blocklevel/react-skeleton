@@ -2,7 +2,6 @@
   "name": "react-starter-kit",
   "version": "1.0.0",
   "description": "Simple react starter kit with webpack",
-  "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server"
   },

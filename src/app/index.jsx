@@ -4,18 +4,28 @@ import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 
 /**
+ * Imports GSAP library
+ */
+require('gsap');
+
+/**
+ * Global styles
+ */
+require('app/assets/css/base.css');
+
+/**
  * Layouts
  */
-import Master from './layouts/Master/Master';
-import Layout from './layouts/Layout/Layout';
+import Master from 'app/layouts/master/Master';
+import Layout from 'app/layouts/Layout';
 
 /**
  * Pages
  */
-import Home from 'pages/Home/Home';
-import About from 'pages/About/About';
-import Contact from 'pages/Contact/Contact';
-import NoMatch from 'pages/NoMatch/NoMatch';
+import Home from 'app/pages/home/Home';
+import About from 'app/pages/about/About';
+import Contact from 'app/pages/contact/Contact';
+import NoMatch from 'app/pages/no-match/NoMatch';
 
 /**
  * The actual node in which the application will be rendered
@@ -23,7 +33,10 @@ import NoMatch from 'pages/NoMatch/NoMatch';
 const app = document.getElementById('app');
 
 /**
- * Create the history object removing the query strings
+ * This history type allows us to use the hash in the url to manage navigation.
+ * If we don't want that, we can simply use browserHistory class inside react-router
+ * and we need to handle routing also server side or won't be possible to refresh
+ * the same page.
  */
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
