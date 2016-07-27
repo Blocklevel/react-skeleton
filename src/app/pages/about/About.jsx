@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { appReady } from 'data/actions/appActions';
 
 @connect((store) =>
 {
@@ -10,11 +9,6 @@ import { appReady } from 'data/actions/appActions';
 })
 class About extends React.Component
 {
-    componentWillMount()
-    {
-        this.props.dispatch(appReady());
-    }
-
     render()
     {
         return (
