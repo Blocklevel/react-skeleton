@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
+import { Router, Route, IndexRoute, useRouterHistory, browserHistory } from 'react-router';
 import { createHashHistory } from 'history';
+import store from 'data/store';
+import { Provider } from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux'
 
 /**
  * Imports GSAP library
@@ -39,19 +42,21 @@ const app = document.getElementById('app');
  * the same page.
  */
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
-
+const history = syncHistoryWithStore(appHistory, store);
 /**
  * Routing and app render
  */
 ReactDom.render(
-	<Router history={appHistory}>
-		<Route component={Master}>
-			<Route path="/" component={Layout}>
-				<IndexRoute component={Home} />
-				<Route path="about" component={About} />
-				<Route path="contact" component={Contact}/>
-				<Route path="*" component={NoMatch} />
+	<Provider store={store}>
+		<Router history={history}>
+			<Route component={Master}>
+				<Route path="/" component={Layout}>
+					<IndexRoute component={Home} />
+					<Route path="about" component={About} />
+					<Route path="contact" component={Contact}/>
+					<Route path="*" component={NoMatch} />
+				</Route>
 			</Route>
-		</Route>
-	</Router>,
+		</Router>
+	</Provider>,
 app);

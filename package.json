@@ -2,6 +2,9 @@
   "name": "react-starter-kit",
   "version": "1.0.0",
   "description": "Simple react starter kit with webpack",
+  "repository": {
+    "url": "https://github.com/MatteoGabriele/react-starter-kit"
+  },
   "scripts": {
     "dev": "webpack-dev-server"
   },
@@ -9,17 +12,23 @@
   "author": "Matteo Gabriele <m.gabriele.dev@gmail.com> (http://matteogabriele.it)",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.13.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-stage-2": "^6.11.0",
     "express": "^4.13.4",
-    "flux": "^2.1.1",
     "gsap": "^1.18.2",
     "history": "^1.17.0",
     "lodash": "^4.2.1",
     "react": "^0.14.7",
-    "react-addons-transition-group": "^15.2.1",
-    "react-addons-update": "^15.2.1",
     "react-dom": "^0.14.7",
     "react-gsap-enhancer": "^0.2.1",
-    "react-router": "^2.5.2"
+    "react-redux": "^4.4.5",
+    "react-router": "^2.5.2",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-promise-middleware": "^3.3.2",
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
