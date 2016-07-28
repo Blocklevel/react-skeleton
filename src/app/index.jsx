@@ -37,12 +37,17 @@ const app = document.getElementById('app');
 
 /**
  * This history type allows us to use the hash in the url to manage navigation.
- * If we don't want that, we can simply use browserHistory class inside react-router
- * and we need to handle routing also server side or won't be possible to refresh
+ * If you don't want that, simply use this :
+ *
+ * 	@example
+ * 	const history = syncHistoryWithStore(browserHistory, store);
+ *
+ * With this setup we need to handle routing also server side or won't be possible to refresh
  * the same page.
  */
-const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
-const history = syncHistoryWithStore(appHistory, store);
+const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false });
+const history = syncHistoryWithStore(hashHistory, store);
+
 /**
  * Routing and app render
  */
