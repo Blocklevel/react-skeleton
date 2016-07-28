@@ -1,0 +1,3 @@
+[submodule "src/app/components/skeleton-components"]
+	path = src/app/components/skeleton-components
+	url = https://github.com/MatteoGabriele/skeleton-components.git
