@@ -22,8 +22,7 @@ class Contact extends React.Component
   {
         return (
             <div>
-                <h2>Contact page</h2>
-                <p>This page has an example of gsap animation</p>
+                <p>This page has an example of transition in animation</p>
             </div>
         )
   }
