@@ -16,6 +16,12 @@ module.exports = {
         filename: 'bundle.js'
     },
 
+    devServer : {
+        port: '8080',
+        host: 'localhost',
+        historyApiFallback: true
+    },
+
     resolve: {
         modulesDirectories: ['node_modules', 'src'],
         extensions: ['', '.js', '.jsx']

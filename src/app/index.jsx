@@ -46,7 +46,7 @@ const app = document.getElementById('app');
  * the same page.
  */
 const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false });
-const history = syncHistoryWithStore(hashHistory, store);
+const history = syncHistoryWithStore(browserHistory, store);
 
 /**
  * Routing and app render
