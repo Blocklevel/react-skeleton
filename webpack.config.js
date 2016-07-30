@@ -6,7 +6,7 @@ var definitions = {
     __CLIENT__: true,
     __SERVER__: false,
     __DEVELOPMENT__: true,
-    
+
     /**
      * System logs
      * @example : logs of loggers middleware for Redux reducers
@@ -40,7 +40,8 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, 'public'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        sourceMapFilename: "bundle.map.js",
     },
 
     resolve: {
