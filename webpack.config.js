@@ -2,13 +2,40 @@ var webpack = require('webpack');
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
-    devtool: 'inline-source-map',
+var definitions = {
+    __CLIENT__: true,
+    __SERVER__: false,
+    __DEVELOPMENT__: true,
+    
+    /**
+     * System logs
+     * @example : logs of loggers middleware for Redux reducers
+     */
+    __SYSTEM_LOGS__ : false,
 
+    // Redux dev tool
+    __DEV_TOOLS__: true
+};
+
+var serverOptions = {
+    port: '8080',
+    host: 'localhost',
+    historyApiFallback: true,
+    watchOptions: { aggregateTimeout: 300, poll: 1000 },
+    quiet: true,
+    noInfo: true,
+    hot: false,
+    inline: true,
+    lazy: false,
+    headers: {'Access-Control-Allow-Origin': '*'},
+    stats: {colors: true}
+};
+
+module.exports = {
     entry: [
         'webpack-dev-server/client?http://127.0.0.1:8080/',
         'webpack/hot/only-dev-server',
-        './src/app/index.jsx'
+        './src/app'
     ],
 
     output: {
@@ -16,15 +43,9 @@ module.exports = {
         filename: 'bundle.js'
     },
 
-    devServer : {
-        port: '8080',
-        host: 'localhost',
-        historyApiFallback: true
-    },
-
     resolve: {
         modulesDirectories: ['node_modules', 'src'],
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx', 'json']
     },
 
     module: {
@@ -43,6 +64,7 @@ module.exports = {
         ]
     },
 
+
     postcss: [
         require('autoprefixer-core'),
         require('postcss-color-rebeccapurple')
@@ -51,6 +73,9 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin('style.css', { allChunks: true }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
-    ]
+        new webpack.NoErrorsPlugin(),
+        new webpack.DefinePlugin(definitions),
+    ],
+
+    devServer : serverOptions
 };

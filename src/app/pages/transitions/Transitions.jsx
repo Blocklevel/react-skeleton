@@ -15,6 +15,7 @@ class Contact extends React.Component
 
 	componentDidMount()
 	{
+
 		this.addAnimation(this.transitionIn);
 	}
 
@@ -22,7 +23,7 @@ class Contact extends React.Component
   {
         return (
             <div>
-                <p>This page has an example of transition in animation</p>
+                <p>This page has an example of transitions</p>
             </div>
         )
   }

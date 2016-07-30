@@ -1,5 +1,6 @@
 .base {
   margin-bottom: 40px;
+  transition: opacity 500ms ease-out;
 }
 
 .link {
@@ -12,4 +13,16 @@
 
 .linkActive {
   text-decoration: underline;
+}
+
+.animation .link{
+  transition: all 400ms ease-out;
+}
+
+.animation:hover {
+  color: #40a070;
+}
+.disabled{
+  opacity: 0.5;
+  pointer-events: none;
 }

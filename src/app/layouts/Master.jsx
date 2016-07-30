@@ -1,26 +1,20 @@
 import React  from 'react'
-import style from './Master.css';
-import Navigation from 'app/components/Navigation/Navigation';
 import { connect } from 'react-redux';
 import { appReady } from 'data/actions/appActions';
+import Navigation from 'app/components/Navigation/Navigation';
 
 @connect((store) =>
 {
 	return {
-		app: store.app
+		ui: store.app.ui
 	}
 })
 class Master extends React.Component 
 {
-	componentWillMount()
-	{
-		this.props.dispatch(appReady());
-	}
-
     render() {
         return (
-	        <div className={style.base}>
-	        	<Navigation />
+	        <div>
+				<Navigation enabled={this.props.ui.navigationEnabled}></Navigation>
 	        	{this.props.children}
 	        </div>
 	    );

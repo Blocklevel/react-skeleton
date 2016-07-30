@@ -4,16 +4,20 @@ import style  from './Navigation.css'
 
 class Navigation extends React.Component
 {
-  render()
-  {
-    return (
-      <nav className={style.base}>
-        <IndexLink activeClassName={style.linkActive} className={style.link} to="/">Home</IndexLink>
-        <Link activeClassName={style.linkActive} className={style.link} to="about">About</Link>
-        <Link activeClassName={style.linkActive} className={style.link} to="contact">Contact</Link>
-      </nav>
-    );
-  }
+    render()
+    {
+        const { enabled } = this.props;
+
+        return (
+            <nav className={style.base}>
+                <nav className={style.base + ' ' + (enabled ? '' : style.disabled)}>
+                    <IndexLink activeClassName={style.linkActive} className={style.link} to="/">Home</IndexLink>
+                    <Link activeClassName={style.linkActive} className={style.link} to="data-flow">Data Flow</Link>
+                    <Link activeClassName={style.linkActive} className={style.link} to="transitions">Transitions</Link>
+                </nav>
+            </nav>
+        );
+    }
 }
 
 export default Navigation;
