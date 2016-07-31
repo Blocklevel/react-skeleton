@@ -1,16 +1,8 @@
-# Windows image file caches
+
 Thumbs.db
-
-# Webstorm
 .idea
-
-# =========================
-# Operating System Files
-# =========================
-
-# OSX
-# =========================
 .DS_Store
 
 node_modules
 bower_components
+public
