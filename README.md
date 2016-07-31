@@ -6,4 +6,4 @@
 - ES6/ES7 features with Babel
 - Webpack and webpack-dev-server
 - Bower
-
+- Sentry issue streaming config file
