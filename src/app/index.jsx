@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import routes from './routes';
-import Raven from 'raven-js';
-import { sentryUrl } from 'utils/sentryConfig';
 
 /**
  * Imports GSAP library
