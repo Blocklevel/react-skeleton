@@ -2,6 +2,7 @@ import React  from 'react'
 import { connect } from 'react-redux';
 import { appReady } from 'data/actions/appActions';
 import Navigation from 'app/components/Navigation/Navigation';
+import style from './Master.css';
 
 @connect((store) =>
 {
@@ -13,7 +14,7 @@ class Master extends React.Component
 {
     render() {
         return (
-	        <div>
+	        <div className={style.base}>
 				<Navigation enabled={this.props.ui.navigationEnabled}></Navigation>
 	        	{this.props.children}
 	        </div>

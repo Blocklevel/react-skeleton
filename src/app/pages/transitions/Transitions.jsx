@@ -1,32 +1,70 @@
 import React from 'react';
-import GSAP from 'react-gsap-enhancer';
+import TransitionGroup from 'react-addons-transition-group';
+import DestroyMe from './DestroyMe';
 
-@GSAP()
 class Contact extends React.Component
 {
-    transitionIn({target})
-	{
-		return TweenMax.from(target, 1, {
-          x: '-=100',
-          autoAlpha: 0,
-          ease: Expo.easeOut
+    constructor(props)
+    {
+        super(props);
+
+        this.state = {
+            shouldShowComponent: true
+        };
+    }
+
+    componentDidAppear()
+    {
+        TweenMax.fromTo(this.refs.container, 1, {
+            autoAlpha:0,
+            x: -50
+        },{
+            autoAlpha: 1,
+            x: 0,
+            ease: Expo.easeOut
         });
-	}
+    }
 
-	componentDidMount()
-	{
+    componentDidEnter (callback) {
+        TweenMax.fromTo(this.refs.container, 1, {
+            autoAlpha:0,
+            x: -50
+        },{
+            autoAlpha: 1,
+            x: 0,
+            ease: Expo.easeOut
+        });
+    }
 
-		this.addAnimation(this.transitionIn);
-	}
+    componentWillLeave (callback) {
+        TweenMax.to(this.refs.container, 1, {
+            autoAlpha:0,
+            x: -50,
+            ease: Expo.easeOut,
+            onComplete: callback
+        });
+    }
 
-  render()
-  {
+    toggleBox() {
+        this.setState({
+            shouldShowComponent: !this.state.shouldShowComponent
+        });
+    }
+
+    render()
+    {
         return (
-            <div>
-                <p>This page has an example of transitions</p>
+            <div ref="container">
+                <h2>Transitions examples</h2>
+                <button onClick={this.toggleBox.bind(this)}>
+                    {this.state.shouldShowComponent ? 'Destroy me!' : 'Initialize me!'}
+                </button>
+                <TransitionGroup component="div">
+                    { this.state.shouldShowComponent && <DestroyMe/>}
+                </TransitionGroup>
             </div>
         )
-  }
+    }
 }
 
 export default Contact;

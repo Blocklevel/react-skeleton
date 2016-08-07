@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 /**
  * Layouts
  */
-import Master from 'app/layouts/Master';
-import Layout from 'app/layouts/Layout';
+import Master from 'app/layouts/master/Master';
+import Layout from 'app/layouts/layout/Layout';
 
 /**
  * Pages
@@ -26,8 +26,8 @@ const routes = (
             <Route component={Master}>
                 <Route path="/" component={Layout}>
                     <IndexRoute component={Home}></IndexRoute>
-                    <Route path="data-flow" component={DataFlow}></Route>
-                    <Route path="transitions" component={Transitions}></Route>
+                    <Route path="/data-flow" component={DataFlow}></Route>
+                    <Route path="/transitions" component={Transitions}></Route>
                 </Route>
             </Route>
             <Route path="*" component={NoMatch}></Route>
