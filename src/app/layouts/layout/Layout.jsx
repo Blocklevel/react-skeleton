@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TransitionGroup from 'react-addons-transition-group';
-import Navigation from 'app/components/Navigation/Navigation';
+import TransitionGroupPlus from 'react-transition-group-plus';
 import style from './Layout.css';
 
 @connect((store) =>
@@ -12,35 +11,27 @@ import style from './Layout.css';
 })
 class Layout extends React.Component
 {
-    constructor(props)
-    {
-        super(props);
-        this.state = {
-            key: this.getKey(this.props.location.pathname)
-        }
-    }
-
     getKey(pathname)
     {
         let replacedPath = pathname.replace('/', '');
         return replacedPath == '' ? 'root' : replacedPath;
     }
 
-    componentWillReceiveProps(nextProps)
-    {
-        this.setState({ key: this.getKey(nextProps.location.pathname) })
-    }
-
     render()
     {
+        let children = React.Children.toArray(this.props.children);
+        let node = children[0] || null;
+
         return (
-            <TransitionGroup component="div" className={style.base}>
-                {React.cloneElement(this.props.children, {
+            <TransitionGroupPlus
+                transitionMode="out-in"
+                component="div"
+                className={style.base}>
+                {React.cloneElement(node, {
                     ...this.props,
-                    key: this.state.key,
-                    className: style.page
+                    key: this.getKey(this.props.location.pathname)
                 })}
-            </TransitionGroup>
+            </TransitionGroupPlus>
         )
     }
 }

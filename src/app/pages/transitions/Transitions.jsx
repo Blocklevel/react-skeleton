@@ -1,8 +1,9 @@
 import React from 'react';
 import TransitionGroup from 'react-addons-transition-group';
 import DestroyMe from './DestroyMe';
+import DefaultPageComponent from '../DefaultPageComponent';
 
-class Contact extends React.Component
+class Contact extends DefaultPageComponent
 {
     constructor(props)
     {
@@ -11,38 +12,6 @@ class Contact extends React.Component
         this.state = {
             shouldShowComponent: true
         };
-    }
-
-    componentDidAppear()
-    {
-        TweenMax.fromTo(this.refs.container, 1, {
-            autoAlpha:0,
-            x: -50
-        },{
-            autoAlpha: 1,
-            x: 0,
-            ease: Expo.easeOut
-        });
-    }
-
-    componentDidEnter (callback) {
-        TweenMax.fromTo(this.refs.container, 1, {
-            autoAlpha:0,
-            x: -50
-        },{
-            autoAlpha: 1,
-            x: 0,
-            ease: Expo.easeOut
-        });
-    }
-
-    componentWillLeave (callback) {
-        TweenMax.to(this.refs.container, 1, {
-            autoAlpha:0,
-            x: -50,
-            ease: Expo.easeOut,
-            onComplete: callback
-        });
     }
 
     toggleBox() {

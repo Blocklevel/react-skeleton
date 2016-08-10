@@ -1,40 +1,9 @@
 import React from 'react';
 import { enableNavigation, disableNavigation } from 'data/actions/appActions';
+import DefaultPageComponent from '../DefaultPageComponent';
 
-class DataFlow extends React.Component
+class DataFlow extends DefaultPageComponent
 {
-    componentDidAppear()
-    {
-        TweenMax.fromTo(this.refs.container, 1, {
-            autoAlpha:0,
-            x: -50
-        },{
-            autoAlpha: 1,
-            x: 0,
-            ease: Expo.easeOut
-        });
-    }
-
-    componentDidEnter (callback) {
-        TweenMax.fromTo(this.refs.container, 1, {
-            autoAlpha:0,
-            x: -50
-        },{
-            autoAlpha: 1,
-            x: 0,
-            ease: Expo.easeOut
-        });
-    }
-
-    componentWillLeave (callback) {
-        TweenMax.to(this.refs.container, 1, {
-            autoAlpha:0,
-            x: -50,
-            ease: Expo.easeOut,
-            onComplete: callback
-        });
-    }
-
     toggleNavigationState()
     {
         this.props.dispatch(this.props.ui.navigationEnabled ? disableNavigation() : enableNavigation());
