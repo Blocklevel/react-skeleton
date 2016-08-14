@@ -1,44 +1,54 @@
-import event from 'data/events/appEvent';
+import * as events from 'data/events/appEvent';
 
+/**
+ * ## Default state
+ *
+ * Every reducer requires a default state.
+ *
+ * @type {{locales: {lang: string, messages: {}}, ready: boolean}}
+ */
 const defaultValues = {
-    state: 'BOOTING',
-    ui : {
-        navigationEnabled: true
+    locales: {
+        lang: 'en',
+        messages: {}
     }
 };
 
+/**
+ * ## Reducer
+ *
+ * A reducer is a pure function that takes a state and an action as parameters.
+ * The action then is checked via switch statement and it returns a new state:
+ * which is a not mutated object.
+ * A reducer must return always a state.
+ *
+ * @example
+ * export default function (state = defaultValues, action)
+ * {
+ *      switch (action.type)
+ *      {
+ *          case APP_READY:
+ *          {
+ *              return state = { ...state, ready: true };
+ *          }
+ *          default:
+ *          {
+ *              return state;
+ *          }
+ *      }
+ *  };
+ *
+ * @param state
+ * @param action
+ * @returns {*}
+ */
 export default function (state = defaultValues, action)
 {
     switch (action.type)
     {
-        case event.APP_READY:
+        default:
         {
-            state = {...state, state : action.payload};
-            break;
-        }
-        case event.ENABLE_NAVIGATION:
-        {
-            state = {
-                ...state,
-                ui : {
-                    ...state.ui,
-                    navigationEnabled : action.payload
-                }
-            };
-            break;
-        }
-        case event.DISABLE_NAVIGATION:
-        {
-            state = {
-                ...state,
-                ui : {
-                    ...state.ui,
-                    navigationEnabled : action.payload
-                }
-            };
-            break;
+            return state;
         }
     }
-
-    return state;
 };

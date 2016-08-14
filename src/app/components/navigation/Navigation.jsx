@@ -10,14 +10,22 @@ class Navigation extends React.Component
 
         return (
             <nav className={style.base}>
-                <nav className={style.base + ' ' + (enabled ? '' : style.disabled)}>
+                <nav className={style.base + ' ' + (typeof enabled === 'undefined' || enabled ? '' : style.disabled)}>
                     <IndexLink activeClassName={style.linkActive} className={style.link} to="/">Home</IndexLink>
-                    <Link activeClassName={style.linkActive} className={style.link} to="data-flow">Data Flow</Link>
-                    <Link activeClassName={style.linkActive} className={style.link} to="transitions">Transitions</Link>
+                    {/*<Link activeClassName={style.linkActive} className={style.link} to="LINK_PATH">LINK_NAME</Link>*/}
                 </nav>
             </nav>
         );
     }
 }
+
+Navigation.propTypes = {
+    enabled:React.PropTypes.bool,
+    routes:React.PropTypes.array.isRequired
+};
+
+Navigation.defaultProps = {
+    enabled: true
+};
 
 export default Navigation;

@@ -11,7 +11,7 @@ var definitions = {
      * System logs
      * @example : loggers middleware plugin for Redux reducers
      */
-    __SYSTEM_LOGS__ : false,
+    __SYSTEM_LOGS__ : true,
 
     /**
      * Redux dev tool
@@ -39,7 +39,7 @@ module.exports = {
     entry: [
         'webpack-dev-server/client?http://127.0.0.1:8080/',
         'webpack/hot/only-dev-server',
-        './src/app'
+        './src/app/bootstrap.jsx'
     ],
 
     output: {

@@ -1,12 +1,11 @@
 import React from 'react';
-import DefaultPageComponent from '../DefaultPageComponent';
 
-class Home extends DefaultPageComponent
+class Home extends React.Component
 {
     render()
     {
         return (
-            <div ref="container">
+            <div>
                 <h2>React Skeleton!</h2>
             </div>
         )
