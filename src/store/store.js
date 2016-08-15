@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import reducers from 'data/reducers/reducers';
+import reducers from './reducers/reducers';
 
 const devToolExtension = window['devToolsExtension'];
 

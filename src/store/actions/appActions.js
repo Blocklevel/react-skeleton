@@ -1,4 +1,4 @@
-import * as events from 'data/events/appEvent';
+import * as events from '../events/appEvent';
 
 /**
  * ## Actions
@@ -28,7 +28,6 @@ import * as events from 'data/events/appEvent';
  *  @example
  *  import { connect } from 'react-redux';
  *  import { appReady } from 'data/actions/appActions';
- *  import style from './Master.css';
  *
  *  @connect((store) => store)
  *  class ClassName extends React.Component

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import routes from './routes';
-import store, { history } from 'data/store';
+import store, { history } from '../store/store';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 
@@ -24,23 +24,3 @@ ReactDom.render(
         <Router history={history}>{routes}</Router>
     </Provider>,
 document.getElementById('app'));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

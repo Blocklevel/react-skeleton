@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './Index.css';
 
 class Home extends React.Component
 {
@@ -6,7 +7,7 @@ class Home extends React.Component
     {
         return (
             <div>
-                <h2>React Skeleton!</h2>
+                <h2 className={style.title}>React <em>skeleton</em></h2>
             </div>
         )
     }

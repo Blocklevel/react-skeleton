@@ -1,4 +1,4 @@
-import * as events from 'data/events/appEvent';
+import * as events from '../events/appEvent';
 
 /**
  * ## Default state
