@@ -1,6 +1,20 @@
+.base {
+    background: #f8f8f8;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top:0;
+    left:0;
+}
+
 .title {
     position:fixed;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.title em {
+    font-weight: 100;
 }

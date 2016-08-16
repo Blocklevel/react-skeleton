@@ -1,6 +1,8 @@
 import React from 'react';
 import style from './Layout.css';
+import { connect } from 'react-redux';
 
+@connect((store) => store)
 class Layout extends React.Component
 {
     render()

@@ -11,7 +11,7 @@ var definitions = {
      * System logs
      * @example : loggers middleware plugin for Redux reducers
      */
-    __SYSTEM_LOGS__ : true,
+    __SYSTEM_LOGS__ : false,
 
     /**
      * Redux dev tool
