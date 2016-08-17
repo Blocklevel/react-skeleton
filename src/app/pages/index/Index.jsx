@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Index.css';
 import { findDOMNode } from 'react-dom';
 
-class Home extends React.Component
+class Index extends React.Component
 {
     componentDidMount()
     {
@@ -33,4 +33,4 @@ class Home extends React.Component
     }
 }
 
-export default Home;
+export default Index;
