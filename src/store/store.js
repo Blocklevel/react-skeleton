@@ -1,13 +1,19 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import reducers from './reducers/reducers';
+import promise from 'redux-promise-middleware';
 
 const devToolExtension = window['devToolsExtension'];
 
-let middleware = [thunk];
+/**
+ * Add new middleware here!
+ * @type {*[]}
+ */
+let middleware = [
+    promise()
+];
 
 if (__SYSTEM_LOGS__)
 {

@@ -3,7 +3,6 @@ import _ from 'lodash';
 
 const defaultValues = {
     videos: [],
-    status: 'IDLE',
     statusTypes: []
 };
 
@@ -59,18 +58,24 @@ export default function (state = defaultValues, action)
             }
         }
 
-        case events.ADD_VIDEO:
+        case events.RETRIEVE_VIDEOS_FULFILLED:
         {
-            return state = { ...state, videos: [
-                ...state.videos,
+            const { videos } = action.payload.data;
+
+            if (state.videos.length > 0)
+            {
+                return state;
+            }
+
+            return state = {
+                ...state,
+                videos: videos.map(id =>
                 {
-                    id: action.payload,
-                    status: state.status,
-                    elapsedTime: 0,
-                    totalTime: 0
-                }
-            ]};
+                    return { id, elapsedTime: 0, totalTime: 0 }
+                })
+            };
         }
+
         default:
         {
             return state;

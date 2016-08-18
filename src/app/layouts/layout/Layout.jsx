@@ -8,9 +8,9 @@ class Layout extends React.Component
     render()
     {
         return (
-            <div className={style.base}>
+            <main className={style.base}>
                 {React.cloneElement(this.props.children, this.props)}
-            </div>
+            </main>
         )
     }
 }

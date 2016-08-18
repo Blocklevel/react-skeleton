@@ -24,6 +24,14 @@ export function addVideo(payload)
     }
 }
 
+export function retrieveVideos(payload)
+{
+    return {
+        type: events.RETRIEVE_VIDEOS,
+        payload
+    }
+}
+
 export function updatePlayerTotalTime(time, index)
 {
     return {

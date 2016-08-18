@@ -1,37 +1,27 @@
 import React from 'react';
 import Player from 'app/components/skeleton-components/player/Player';
-import {
-    updatePlayerStatus,
-    addVideo,
-    updatePlayerTotalTime,
-    updatePlayerElapsedTime,
-    addPlayerStatusTypes
-} from 'store/actions/playerActions';
+import * as actions from 'store/actions/playerActions';
+import axios from 'axios';
 
 class Videos extends React.Component
 {
     onStatusChanges({target, data}, i)
     {
-        this.props.dispatch(updatePlayerStatus(data, i));
-        this.props.dispatch(updatePlayerElapsedTime(target.getCurrentTime(), i));
+        this.props.dispatch(actions.updatePlayerStatus(data, i));
+        this.props.dispatch(actions.updatePlayerElapsedTime(target.getCurrentTime(), i));
     }
 
     onPlayerReady({target}, i)
     {
-        this.props.dispatch(updatePlayerTotalTime(target.getDuration(), i));
+        this.props.dispatch(actions.updatePlayerTotalTime(target.getDuration(), i));
     }
 
     componentDidMount()
     {
-        const { player: { videos }, dispatch } = this.props;
+        const { dispatch } = this.props;
 
-        dispatch(addPlayerStatusTypes(Player.statusTypes));
-
-        if (!videos.length)
-        {
-            const videoIds = ['UiTsB5OUpA0', 'UiTsB5OUpA0'];
-            videoIds.map(id => dispatch(addVideo(id)));
-        }
+        dispatch(actions.addPlayerStatusTypes(Player.statusTypes));
+        dispatch(actions.retrieveVideos(axios.get('src/static/videos.json')));
     }
 
     renderVideos()
@@ -41,7 +31,7 @@ class Videos extends React.Component
         if (!videos.length)
         {
             return (
-                <p>Video list it's empty.</p>
+                <p>No videos.</p>
             )
         }
 
