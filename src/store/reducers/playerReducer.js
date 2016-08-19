@@ -62,7 +62,7 @@ export default function (state = defaultValues, action)
         {
             const { videos } = action.payload.data;
 
-            if (state.videos.length > 0)
+            if (!videos || !videos.length || state.videos.length > 0)
             {
                 return state;
             }
