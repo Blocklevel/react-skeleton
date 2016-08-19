@@ -4,6 +4,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import logger from 'redux-logger';
 import reducers from './reducers/reducers';
 import promise from 'redux-promise-middleware';
+import { enableBatching } from 'redux-batched-actions';
 
 const devToolExtension = window['devToolsExtension'];
 
@@ -23,7 +24,7 @@ if (__SYSTEM_LOGS__)
 /**
  * Our store
  */
-const store = createStore(reducers, compose(
+const store = createStore(enableBatching(reducers), compose(
     applyMiddleware(...middleware),
     devToolExtension && __DEV_TOOLS__ ? devToolExtension() : f => f
 ));
