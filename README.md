@@ -4,7 +4,7 @@
 - use `git clone --recursive <url>` to clone the repository and clone also its submodules 
 
 ## Setup
-- run `npm install` in your terminal to install all dependecies.
+- run `npm install` in your terminal to install all dependencies.
 - run `npm run dev` to start working!
 
 ## Unit test
