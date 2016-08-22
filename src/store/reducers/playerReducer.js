@@ -3,6 +3,9 @@ import _ from 'lodash';
 
 const defaultValues = {
     videos: [],
+    fetchingVideos: false,
+    retrieveVideosError: false,
+    retrieveErrorMessage: null,
     statusTypes: []
 };
 
@@ -58,9 +61,22 @@ export default function (state = defaultValues, action)
             }
         }
 
+        case events.RETRIEVE_VIDEOS_PENDING:
+        {
+            return state = { ...state, fetchingVideos: true };
+        }
+
         case events.RETRIEVE_VIDEOS_FULFILLED:
         {
             const { videos } = action.payload.data;
+
+            // clean errors
+            state = {
+                ...state,
+                fetchingVideos: false,
+                retrieveVideosError: false,
+                retrieveErrorMessage: null
+            };
 
             if (!videos || !videos.length || state.videos.length > 0)
             {
@@ -73,6 +89,18 @@ export default function (state = defaultValues, action)
                 {
                     return { id, elapsedTime: 0, totalTime: 0 }
                 })
+            };
+        }
+
+        case events.RETRIEVE_VIDEOS_REJECTED:
+        {
+            const { message } = action.payload;
+
+            return state = {
+                ...state,
+                fetchingVideos: false,
+                retrieveVideosError: true,
+                retrieveErrorMessage: message
             };
         }
 

@@ -44,6 +44,8 @@ const defaultValues = {
  */
 export default function (state = defaultValues, action)
 {
+    
+
     switch (action.type)
     {
         default:

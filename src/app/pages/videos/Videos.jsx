@@ -2,31 +2,48 @@ import React from 'react';
 import Player from 'app/components/skeleton-components/player/Player';
 import * as actions from 'store/actions/playerActions';
 import axios from 'axios';
+import { batchActions } from 'redux-batched-actions';
 
 class Videos extends React.Component
 {
     onStatusChanges({target, data}, i)
     {
-        this.props.dispatch(actions.updatePlayerStatus(data, i));
-        this.props.dispatch(actions.updatePlayerElapsedTime(target.getCurrentTime(), i));
+        this.props.dispatch(batchActions([
+            actions.updatePlayerStatus(data, i),
+            actions.updatePlayerElapsedTime(target.getCurrentTime(), i)
+        ]));
     }
 
     onPlayerReady({target}, i)
     {
-        this.props.dispatch(actions.updatePlayerTotalTime(target.getDuration(), i));
+        this.props.dispatch(batchActions([
+            actions.addPlayerStatusTypes(Player.statusTypes),
+            actions.updatePlayerTotalTime(target.getDuration(), i)
+        ]));
     }
 
     componentDidMount()
     {
-        const { dispatch } = this.props;
-
-        dispatch(actions.addPlayerStatusTypes(Player.statusTypes));
-        dispatch(actions.retrieveVideos(axios.get('src/static/videos.json')));
+        this.props.dispatch(actions.retrieveVideos(axios.get('src/static/videos.json')));
     }
 
     renderVideos()
     {
-        const { videos } = this.props.player;
+        const { videos, fetchingVideos, retrieveVideosError, retrieveErrorMessage } = this.props.player;
+
+        if (fetchingVideos)
+        {
+            return (
+                <p>Loading...</p>
+            )
+        }
+
+        if (retrieveVideosError)
+        {
+            return (
+                <p>{retrieveErrorMessage}</p>
+            )
+        }
 
         if (!videos.length)
         {

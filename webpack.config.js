@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 var definitions = {
     __CLIENT__: true,
@@ -11,7 +12,7 @@ var definitions = {
      * System logs
      * @example : loggers middleware plugin for Redux reducers
      */
-    __SYSTEM_LOGS__ : false,
+    __SYSTEM_LOGS__ : true,
 
     /**
      * Redux dev tool
@@ -87,6 +88,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin(definitions),
+        new OpenBrowserPlugin({ url: `http://localhost:${ serverOptions.port }` })
     ],
 
     devServer : serverOptions
