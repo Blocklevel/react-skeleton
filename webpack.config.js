@@ -24,12 +24,9 @@ var serverOptions = {
     port: '8080',
     host: 'localhost',
     historyApiFallback: true,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 },
-    quiet: true,
     noInfo: true,
     hot: false,
     inline: true,
-    lazy: false,
     headers: {'Access-Control-Allow-Origin': '*'},
     stats: {colors: true}
 };
@@ -77,18 +74,17 @@ module.exports = {
         ]
     },
 
-
     postcss: [
         require('autoprefixer-core'),
         require('postcss-color-rebeccapurple')
     ],
 
     plugins: [
+        new OpenBrowserPlugin({ url: `http://localhost:${ serverOptions.port }` }),
         new ExtractTextPlugin('style.css', { allChunks: true }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new webpack.DefinePlugin(definitions),
-        new OpenBrowserPlugin({ url: `http://localhost:${ serverOptions.port }` })
+        new webpack.DefinePlugin(definitions)
     ],
 
     devServer : serverOptions

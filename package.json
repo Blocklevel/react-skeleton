@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server",
-    "test": "mocha tests/helpers/browser.js src/**/*.test.jsx"
+    "test": "./node_modules/.bin/mocha __tests__/helpers/browser.js ./**/*.test.jsx"
   },
   "repository": {
     "type": "git",
